@@ -1,6 +1,6 @@
 # RE_iO Script: documentation
 
-> **Work in progress (v0.0.1).** Unreviewed draft; labels, codes and layout may change or be wrong. All rights reserved (see `LICENSE`).
+> **Work in progress (v0.0.2).** Unreviewed draft; labels, codes and layout may change or be wrong. All rights reserved (see `LICENSE`).
 
 A systematic glyph script for the range of sounds the human voice can make, built from the RE_iO Script charts 16176 (chart i, all possible sounds; chart ii, sounds found in speech) and 16180 (the full chart with the attested sounds marked in blue). The charts credit **Luciano Canepari, *La Fonetica naturale*, con IPA** as the work they are based upon. This document explains what the grid means, how to type it, and what is and is not confirmed.
 
@@ -17,6 +17,15 @@ A systematic glyph script for the range of sounds the human voice can make, buil
 > **Repository layout:** in this repo the files named below live in `font/`, `web/`, `data/`, `input/` and `docs/`. See the README for the map.
 
 ## 1. What is in the font
+
+There are **two fonts**:
+
+| Font | File | Glyphs | Contents |
+|---|---|---|---|
+| RE_iO Script | `REiO-Script.ttf` | 2,268 | The complete set: every possible sound |
+| RE_iO Script Attested | `REiO-Script-Attested.ttf` | 566 | Only the sounds found in human speech (the blue cells of chart 16180) |
+
+The attested font is cut from the complete one and keeps the **same codepoints**, so text typed with either works with both. Codepoints with no glyph in the attested font display blank or in a fallback font. Install whichever you need; both can be installed together. The rest of this section describes the complete font.
 
 - **2,268 glyphs**, one for every cell of chart i: 63 columns by 36 rows. No blanks.
 - Codepoints run **U+E000 to U+E8DB** in chart order, left to right then top to bottom. Glyph at row *r*, column *c* is U+E000 + (*r*-1) x 63 + (*c*-1).
@@ -157,7 +166,8 @@ The first glyph (top left) is `a111`. The last (bottom right) is `m270`. The com
 
 | File | Purpose |
 |---|---|
-| `REiO-Script.ttf` | The font |
+| `REiO-Script.ttf` | The complete font (2,268 glyphs) |
+| `REiO-Script-Attested.ttf` | The attested-only font (566 glyphs) |
 | `REiO-Script-typing-sheet.html` | Click-to-type chart and typing box, font embedded, works offline |
 | `REiO-Script-glyphs.csv` | One row per glyph: codepoint, row and column, groups, typing code, attested flag, place and manner labels |
 | `REiO-Script.XCompose` | Linux input sequences |

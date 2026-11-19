@@ -10,3 +10,5 @@ Rebuild pipeline. Run from the **repo root** (the scripts read `charts/` by rela
 `labels.py` holds the place and manner names taken from Canepari's fig 10.1 (see `upstream/SOURCES.md`).
 
 Note: these scripts were developed in a scratch folder and copied here with the chart paths adjusted. The full pipeline has not been re-run end to end from this layout.
+
+5. `python tools/mksubset.py font/REiO-Script.ttf data/REiO-Script-glyphs.csv font/REiO-Script-Attested.ttf` : cuts the attested-only font from the complete one.

@@ -1,7 +1,9 @@
 # Changelog
 
-## Unreleased
+## 0.0.2
+- Added the second font, **RE_iO Script Attested** (`font/REiO-Script-Attested.ttf`): only the 566 glyphs marked blue in chart 16180, with the same codepoints as the complete font. The complete font is unchanged.
 - Added an explicit all-rights-reserved `LICENSE`.
+- Added `tools/mksubset.py`.
 
 ## 0.0.1
 First draft for review by the script's designer.
