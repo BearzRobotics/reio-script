@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RE_iO Script Typing Sheet</title>
+<style>
+@font-face{font-family:"REiO";src:url(data:font/ttf;base64,__FONT__) format("truetype")}
+:root{--bg:#282828;--panel:#333;--fg:#e8e8e8;--dim:#999;--grid:#ff6800;--hi:#3d6bff;--acc:#1de9b6;--glyph:#f2f2f2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px system-ui,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--panel);padding:10px 16px;border-bottom:2px solid var(--acc)}
+h1{font-size:16px;margin:0 0 6px}
+#out{width:100%;min-height:84px;font:56px/1.15 "REiO",monospace;background:#1c1c1c;color:var(--glyph);border:1px solid #555;border-radius:6px;padding:6px;resize:vertical}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+button,label.t{background:#444;color:var(--fg);border:1px solid #666;border-radius:6px;padding:5px 10px;font:inherit;cursor:pointer}
+button:hover{background:#555}
+#pend{font:600 15px ui-monospace,monospace;color:var(--acc);min-width:5ch}
+#info{color:var(--dim);margin-left:auto;font:13px ui-monospace,monospace;max-width:60%;text-align:right}
+main{padding:12px 16px 40px;overflow-x:auto}
+table{border-collapse:collapse}
+td,th{padding:0}
+th{font:11px ui-monospace,monospace;color:var(--dim);font-weight:400}
+.g{width:46px;height:46px;font:34px/46px "REiO",monospace;text-align:center;color:var(--glyph);cursor:pointer;user-select:none}
+.g:hover{background:#555;outline:1px solid var(--acc)}
+body.only .g.n{opacity:.12}
+body:not(.only) .g.a{color:#8fb0ff}
+.cg{border-left:2px solid var(--grid)}
+.rg td,.rg th{border-top:2px solid var(--grid)}
+.rl{padding-right:6px;text-align:right}
+.help{max-width:900px;color:var(--dim);margin:10px 16px;line-height:1.5}
+.help b{color:var(--fg)}
+@media (max-width:600px){#out{font-size:40px}}
+</style></head><body>
+<header>
+<h1>RE_iO Script &mdash; typing sheet</h1>
+<textarea id="out" spellcheck="false" placeholder="Click glyphs below, or type 4-key codes here (e.g. a111)"></textarea>
+<div class="bar">
+<button id="copy">Copy</button><button id="bs">&#9003; Back</button><button id="clr">Clear</button>
+<label class="t"><input type="checkbox" id="only"> Dim sounds not found in human speech</label>
+<span id="pend"></span><span id="info">hover a glyph</span>
+</div></header>
+<div class="help"><b>Typing by keyboard</b> in the box above: 4 keys per glyph &mdash; <b>column group</b> letter (a&ndash;m, the 13 blocks left to right), <b>column in group</b> 1&ndash;7, <b>row group</b> 1&ndash;7 (top to bottom), <b>row in group</b> 1&ndash;9 (0 = 10th). Example: <b>a111</b> is the top-left glyph. Codes are shown on the axes. Esc cancels a half-typed code; space and Enter work normally; Backspace removes the last glyph. Hover a glyph to see its place and manner of articulation (labels from Canepari's <i>Natural Phonetics &amp; Tonetics</i>, fig 10.1: columns = 63 places of articulation in 13 families, rows = 18 manners in 7 groups, each as a voiced/voiceless pair; the voiced-first order within a pair is inferred). Blue glyphs are sounds actually found in human speech (from chart 16180); the rest are the remaining possible combinations.</div>
+<main><table id="t"></table></main>
+<script>
+const D=__DATA__; // [row,col,code,codepoint,attested,rowGroup,colGroup,place,manner]
+const out=document.getElementById('out'),pend=document.getElementById('pend'),info=document.getElementById('info');
+const byCode={};D.forEach(d=>byCode[d[2]]=d);
+const ins=s=>{const a=out.selectionStart,b=out.selectionEnd;out.setRangeText(s,a,b,'end');out.focus()};
+const t=document.getElementById('t');
+// header rows: column codes
+let colInfo=[];for(let c=1;c<=63;c++){const d=D.find(x=>x[1]==c);colInfo[c]=[d[6],d[2].slice(0,2)];}
+let h='<tr><th></th>';for(let c=1;c<=63;c++){h+=`<th class="${colInfo[c][1].endsWith('1')&&c>1?'cg':''}">${colInfo[c][1]}</th>`}h+='</tr>';
+const rowOf={};D.forEach(d=>{(rowOf[d[0]]=rowOf[d[0]]||[]).push(d)});
+for(let r=1;r<=36;r++){
+ const rr=rowOf[r].sort((a,b)=>a[1]-b[1]);const rc=rr[0][2].slice(2);
+ h+=`<tr class="${rc[1]=='1'?'rg':''}"><th class="rl">${rc}</th>`;
+ rr.forEach(d=>{h+=`<td class="g ${d[4]?'a':'n'} ${d[2].slice(1,2)=='1'&&d[1]>1?'cg':''}" data-c="${d[2]}">${String.fromCodePoint(d[3])}</td>`});
+ h+='</tr>';
+}
+t.innerHTML=h;
+t.addEventListener('click',e=>{const c=e.target.closest('.g');if(c)ins(String.fromCodePoint(byCode[c.dataset.c][3]))});
+t.addEventListener('mouseover',e=>{const c=e.target.closest('.g');if(!c)return;const d=byCode[c.dataset.c];
+ info.textContent=`${d[2]} · place ${d[7]} · ${d[8]} · U+${d[3].toString(16).toUpperCase()} · ${d[4]?'found in speech':'possible only'}`});
+// keyboard entry
+let buf='';
+const ok=[/[a-m]/,/[1-7]/,/[1-7]/,/[0-9]/];
+out.addEventListener('keydown',e=>{
+ if(e.ctrlKey||e.metaKey||e.altKey)return;
+ if(e.key==='Escape'){buf='';pend.textContent='';return}
+ if(e.key==='Backspace'&&buf){buf=buf.slice(0,-1);pend.textContent=buf;e.preventDefault();return}
+ if(e.key.length!==1)return;
+ const k=e.key.toLowerCase();
+ if(buf.length||ok[0].test(k)&&/[a-m]/.test(k)){
+   if(ok[buf.length].test(k)){buf+=k;e.preventDefault();
+     if(buf.length===4){const d=byCode[buf];if(d)ins(String.fromCodePoint(d[3]));buf=''}
+     pend.textContent=buf;return}
+   buf='';pend.textContent='';return}
+});
+// block raw latin typing so the box stays a glyph box? no: letters not starting a code pass through.
+document.getElementById('copy').onclick=async()=>{try{await navigator.clipboard.writeText(out.value)}catch(_){out.select();document.execCommand('copy')}};
+document.getElementById('bs').onclick=()=>{const v=[...out.value];v.pop();out.value=v.join('');out.focus()};
+document.getElementById('clr').onclick=()=>{out.value='';out.focus()};
+document.getElementById('only').onchange=e=>document.body.classList.toggle('only',e.target.checked);
+</script></body></html>
