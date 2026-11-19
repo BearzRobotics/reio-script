@@ -7,7 +7,7 @@ A font, typing tools and documentation for **RE_iO Script**: a systematic glyph 
 > ## ⚠️ Work in progress
 > This project is an **unfinished, unreviewed draft (v0.0.1)**. It is a first attempt to turn the RE_iO Script charts into a usable font, and it has **not yet been reviewed by the script's designer**. The glyph labels, the voiced/voiceless row order, the typing codes and the file layout may all change or be wrong. The Windows and macOS input files have not been tested on real machines. Do not treat anything here as final or authoritative.
 >
-> **No licence has been chosen.** The script design belongs to its designer and the phonetic classification it is based on is Luciano Canepari's. Until a licence is added, all rights are reserved and the files are published for review only.
+> **All rights reserved.** See `LICENSE`. The script design belongs to its designer and the phonetic classification it is based on is Luciano Canepari's. The files are published for review only; a licence may be chosen later with the designer.
 
 > **The glyphs only display if the font is loaded.** They live in the Unicode Private Use Area (U+E000 to U+E8DB). Install `font/REiO-Script.ttf` first (Linux: copy to `~/.local/share/fonts/` and run `fc-cache -f`; Windows: right-click, Install; macOS: double-click, Install Font). Without it you will see empty boxes. `web/REiO-Script-typing-sheet.html` has the font embedded and works without installing.
 
@@ -34,6 +34,6 @@ A font, typing tools and documentation for **RE_iO Script**: a systematic glyph 
 - The voiced-first order within each row pair is inferred, not confirmed. See `docs/question.md`.
 - The legend grid at the top right of the charts is not decoded.
 - The Windows and macOS input files were not run on real machines.
-- No licence has been chosen yet (see the notice at the top); one should be decided with the designer.
+- All rights reserved for now (see `LICENSE`); a licence should be decided with the designer.
 
 See `CHANGELOG.md` for versions.

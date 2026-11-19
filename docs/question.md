@@ -22,7 +22,7 @@ I matched the grid to Canepari's fig 10.1 by counting (the 13 place families hav
 - Is the credit line right? I used: "based upon work by Luciano Canepari, La Fonetica naturale, con IPA", as printed on the charts.
 
 ## 7. Licence and sharing
-No licence is set. Who should be credited as the author, and under what terms should the font be shared (for example SIL Open Font License for the font, something else for the charts)? Canepari's PDFs are free to download from canipa.net but I have not checked whether they may be redistributed, so they are linked from `upstream/`, not copied.
+All rights are reserved for now (see `LICENSE`). When it is time, who should be credited as the author, and under what terms should the font be shared (for example SIL Open Font License for the font, something else for the charts)? Canepari's PDFs are free to download from canipa.net but I have not checked whether they may be redistributed, so they are linked from `upstream/`, not copied.
 
 ## 8. Typing
 The 4-key codes follow the chart's own groups. Would the designer prefer a different scheme, such as one key per place family and one per manner?
