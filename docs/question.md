@@ -26,3 +26,8 @@ All rights are reserved for now (see `LICENSE`). When it is time, who should be 
 
 ## 8. Typing
 The 4-key codes follow the chart's own groups. Would the designer prefer a different scheme, such as one key per place family and one per manner?
+
+## 9. Should the attested font stay interchangeable with the complete one?
+There are two fonts: **RE_iO Script** (all 2,268 glyphs) and **RE_iO Script Attested** (only the 566 blue glyphs, the sounds found in human speech). For now the attested font uses the **same codepoints** as the complete font (U+E000 to U+E8DB), so text typed with one displays in the other and the typing codes are identical. The cost is that codepoints for sounds outside the blue set have no glyph in the attested font and show as blank or a fallback box.
+
+The alternative is a **compact** attested font with the 566 glyphs packed into a contiguous range, which would be easier to type and browse but would not be interchangeable with the complete font. Interchangeable is the choice for now. If the designer wants a compact version later, it would be added as a separate third font so this one stays compatible. Which does he prefer, or does he want both?
