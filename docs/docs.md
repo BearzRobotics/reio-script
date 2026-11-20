@@ -1,6 +1,6 @@
 # RE_iO Script: documentation
 
-> **Work in progress (v0.0.2).** Unreviewed draft; labels, codes and layout may change or be wrong. All rights reserved (see `LICENSE`).
+> **Work in progress (v0.0.3).** Unreviewed draft; labels, codes and layout may change or be wrong. All rights reserved (see `LICENSE`).
 
 A systematic glyph script for the range of sounds the human voice can make, built from the RE_iO Script charts 16176 (chart i, all possible sounds; chart ii, sounds found in speech) and 16180 (the full chart with the attested sounds marked in blue). The charts credit **Luciano Canepari, *La Fonetica naturale*, con IPA** as the work they are based upon. This document explains what the grid means, how to type it, and what is and is not confirmed.
 

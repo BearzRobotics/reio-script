@@ -2,10 +2,10 @@
 
 A font, typing tools and documentation for **RE_iO Script**: a systematic glyph script for the range of sounds the human voice can make, designed as an alternative to the many different IPA symbols. The charts credit *Luciano Canepari, La Fonetica naturale, con IPA* as the work they are based upon.
 
-**Version 0.0.2**
+**Version 0.0.3**
 
 > ## ⚠️ Work in progress
-> This project is an **unfinished, unreviewed draft (v0.0.2)**. It is a first attempt to turn the RE_iO Script charts into a usable font, and it has **not yet been reviewed by the script's designer**. The glyph labels, the voiced/voiceless row order, the typing codes and the file layout may all change or be wrong. The Windows and macOS input files have not been tested on real machines. Do not treat anything here as final or authoritative.
+> This project is an **unfinished, unreviewed draft (v0.0.3)**. It is a first attempt to turn the RE_iO Script charts into a usable font, and it has **not yet been reviewed by the script's designer**. The glyph labels, the voiced/voiceless row order, the typing codes and the file layout may all change or be wrong. The Windows and macOS input files have not been tested on real machines. Do not treat anything here as final or authoritative.
 >
 > **All rights reserved.** See `LICENSE`. The script design belongs to its designer and the phonetic classification it is based on is Luciano Canepari's. The files are published for review only; a licence may be chosen later with the designer.
 

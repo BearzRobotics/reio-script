@@ -12,3 +12,4 @@ Rebuild pipeline. Run from the **repo root** (the scripts read `charts/` by rela
 Note: these scripts were developed in a scratch folder and copied here with the chart paths adjusted. The full pipeline has not been re-run end to end from this layout.
 
 5. `python tools/mksubset.py font/REiO-Script.ttf data/REiO-Script-glyphs.csv font/REiO-Script-Attested.ttf` : cuts the attested-only font from the complete one.
+6. `python tools/finalize_font.py <font.ttf> "<Family Name>" "<PostScriptName>"` : **run on each font after steps 2 and 5.** Writes the complete name table and OS/2 style bits that Windows requires (fonts without them are rejected as "not a valid font").
